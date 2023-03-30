@@ -5,4 +5,4 @@ node {
             sh 'npm install'
         }
     }
-}
+}.withRunUser('root')
