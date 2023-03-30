@@ -1,8 +1,8 @@
 node {
-    docker.image('node:16-buster-slim').withRun('-p 3000:3000') {
+    docker.image('node:16-buster-slim').withRun('-p 3000:3000 --privileged') {
         stage('Build') {
-            sh 'sudo apt-get update && sudo apt-get install -y npm'
-            sh 'npm install'
+            sh 'apt-get update && apt-get install -y sudo npm'
+            sh 'sudo npm install --unsafe-perm=true'
         }
     }
-}.withRunUser('root')
+}
